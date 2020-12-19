@@ -1,25 +1,28 @@
 import sys
 
+n = int(sys.stdin.readline())
+nums = sorted(map(int, sys.stdin.readline().split()))
+ans = [0]
 
-def find(target):
-    l, h = 1, len(stack) - 1
-    while l < h:
-        m = (l + h) // 2
-        if stack[m] < target:
-            l = m + 1
-        elif stack[m] > target:
-            h = m
+
+def binary_search(target: int):
+    low = 0
+    high = len(ans) - 1
+    while low < high:
+        mid = (low + high) // 2
+        if ans[mid] < target:
+            low = mid + 1
+        elif ans[mid] > target:
+            high = mid - 1
         else:
-            l = h = m
-    return h
+            low = high = mid
+    return high
 
 
-l = int(sys.stdin.readline())
-arr = list(map(int, sys.stdin.readline().split()))
-stack = [0]
-for a in arr:
-    if stack[-1] < a:
-        stack.append(a)
+for num in nums:
+    if ans[-1] < num:
+        ans.append(num)
     else:
-        stack[find(a)] = a
-print(len(stack) - 1)
+        ans[binary_search(num)] = num
+
+print(len(ans) - 1)
