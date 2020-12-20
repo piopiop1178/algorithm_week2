@@ -6,9 +6,10 @@ n3, test3 = int(sys.stdin.readline()), sorted(list(map(int, sys.stdin.readline()
 
 
 def histogram(n: int, hist: list):
-    l = len(hist)
-    for h in hist:
-        tmp = []
-        for i in range(l):
-            if hist[i] - l >= 0:
-                tmp[i] = hist[i] - l
+    start = hist[0]
+    last = len(hist) - 1
+    min_height = hist.index(min(hist))
+    area = (min_height - start) + (last - min_height)
+
+    if min_height > start:
+        histogram(hist[start:min_height])
