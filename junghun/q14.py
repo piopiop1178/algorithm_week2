@@ -20,7 +20,7 @@ class FixedStack:
         self.ptr -= 1
         return self.stk[self.ptr]
 
-    def size(self):g
+    def size(self):
         return self.ptr
 
 
