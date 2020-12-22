@@ -1,8 +1,8 @@
-
+import sys
 n = int(input())
-inp = list(map(int, input().split()))
+inp = list(map(int, sys.stdin.readline().split()))
 m = int(input())
-comp = list(map(int, input().split()))
+comp = list(map(int, sys.stdin.readline().split()))
 
 inp = sorted(inp)
 
