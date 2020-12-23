@@ -27,7 +27,7 @@ second_cnt = 0
 snake_arr = list()
 snake_arr.append({"row": 1, "column": 1})
 std_direction = "right"
-# 게임 시작
+
 while True:
     second_cnt += 1
     tmp = snake_arr[-1]
@@ -51,18 +51,21 @@ while True:
         print(second_cnt)
         break
 
-    elif current_c > N or current_r > N:
+    elif current_c > N or current_c < 1 or current_r > N or current_r < 1:
         print(second_cnt)
         break
 
     else:
         if apples_arr:
-            if current_r == apples_arr[0]['row'] and current_c == apples_arr[0]['column']:
+            if current_location in apples_arr:
                 snake_arr.append(current_location)
-                del apples_arr[0]
+                apples_arr.remove(current_location)
             else:
                 del snake_arr[0]
                 snake_arr.append(current_location)
+        else:
+            del snake_arr[0]
+            snake_arr.append(current_location)
 
         if turns_arr:
             if turns_arr[0]['second'] == second_cnt:

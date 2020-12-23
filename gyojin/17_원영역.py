@@ -12,31 +12,39 @@ print(li)
 stack = []
 leng = len(li) - 1
 ans = 0
-for i in range(leng):
+for i in range(len(li)):
 
     if not stack:
         stack.append([li[i], 'open'])
         last = li[i][0]
-        print('처음:', last)
 
     else:
         if li[i][1] == -1:
             if li[i][0] == last:     # 접할 때
                 stack[-1][1] = '접'
             else:
-                stack[-1][1] = '안접'
+                if stack[-1][1] != '접':
+                    stack[-1][1] = '안접'
                 last = li[i][0]
             stack.append([li[i], 'open'])
-            print('원열림:', last)
+            # print('원열림:', stack)
 
         elif li[i][1] == 1:       # 원 닫힘
             tmp = stack.pop()
-            if tmp[1] == '접' and last == li[i][0]:
-                ans += 2
-            else:
+            if stack and stack[-1][1] == '접':
+                last = li[i][0]
+                # last = li[i][0]
+                # print('접:',ans)
+            if tmp[0][0] == li[i][0]:
                 ans += 1
-            last = li[i][0]
-            print('원닫힘:', last)
+            ans += 1
+            # print('tmp:', tmp)
+            # print('last:',last)
+    print('stack:', stack)
+    print('ans:', ans)
+    print('last:', last)
 
-print(ans + 1)
+
+# print(stack)
+print(ans)
 
