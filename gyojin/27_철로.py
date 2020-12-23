@@ -8,11 +8,14 @@ for _ in range(n):
     people.append(x)
 d = int(sys.stdin.readline())
 
-people.sort()
-print(people)
+people.sort(key=lambda x: x[1])
 
 heap = []
-for p in people:
-    if p[1] - p[0] > d:
-        continue
-    else:
+maxi = 0
+for i in range(n):
+    heapq.heappush(heap, people[i][0])
+    while heap and heap[0] < people[i][1] - d:
+        heapq.heappop(heap)
+    maxi = max(maxi, len(heap))
+
+print(maxi)
