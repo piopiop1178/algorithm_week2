@@ -1,4 +1,6 @@
 import sys
+
+sys.stdin = open("input.txt", "r")
 N = int(sys.stdin.readline())
 li = []
 for _ in range(N):

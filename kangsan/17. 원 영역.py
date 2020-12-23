@@ -9,7 +9,7 @@ for _ in range(N):
 points.sort(key=lambda x:(x[1], x[0])) #같은 좌표일 때 닫는 괄호가 먼저 나와야해서 { 보다 값이 작은 ) 를 사용함 
 stack = []
 answer = 1
-
+print(points)
 for i in range(len(points)):
     if points[i][0] == "{":
         if stack:
@@ -27,6 +27,6 @@ for i in range(len(points)):
         if half[2] == 1 and half[3] == points[i][1]:
             answer += 1
         answer += 1
-    stack
+    print(stack)
 print(answer)
 
