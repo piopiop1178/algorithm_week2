@@ -31,4 +31,4 @@ def matrix_pow(matrix: list, p: int):
 
 ans = matrix_pow(li, B)
 for row in ans:
-    print(*row)
+    print(*row)         # row를 공백 포함하여 출력해 주므로 행렬 출력에 용이하다
