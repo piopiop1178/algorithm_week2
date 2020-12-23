@@ -9,7 +9,7 @@ blue = 0
 
 def cut_paper(x, y, r):
     global blue, white
-    color = paper[y][x]
+    color = paper[y][x] 
     if r == 1:
         if color:
             blue += 1

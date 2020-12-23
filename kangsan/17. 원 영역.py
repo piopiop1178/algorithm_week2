@@ -27,5 +27,6 @@ for i in range(len(points)):
         if half[2] == 1 and half[3] == points[i][1]:
             answer += 1
         answer += 1
+    stack
 print(answer)
 
