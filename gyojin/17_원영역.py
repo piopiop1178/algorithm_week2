@@ -7,7 +7,7 @@ for _ in range(N):
     li.append([x+r, 1, 0])     # 좌표, close, 상태
 
 li.sort(key=lambda x: (x[0], -x[1]))
-print(li)
+# print(li)
 
 stack = []
 ans = 0
@@ -23,7 +23,7 @@ for i in range(len(li)):
             if li[i][0] == stack[-1][0]:     # 접할 때
                 stack[-1][2] = '접함'
             else:
-                if stack[-1][2] != '접함':
+                if stack[-1][2] != '접함' or last != li[i][0]:
                     stack[-1][2] = '안접함'
                 last = li[i][0]
             stack.append(li[i])
@@ -38,9 +38,9 @@ for i in range(len(li)):
 
             ans += 1
 
-    print('stack:', stack)
-    print('ans:', ans)
-    print('last:', last)
+    # print('stack:', stack)
+    # print('ans:', ans)
+    # print('last:', last)
 
 
 # print(stack)
