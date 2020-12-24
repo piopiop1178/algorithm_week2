@@ -36,15 +36,6 @@ while True:
             else:
                 direction = (direction - 1) % 4
 
-        # for i in range(l):
-        #     if time == int(way[i][0]):
-        #         if way[i][1] == 'L':
-        #             direction = (direction + 1) % 4
-        #         else:
-        #             direction = (direction - 1) % 4
-
-        # time += 1
-
     else:
         print(time)
         break
